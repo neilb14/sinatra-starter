@@ -1,0 +1,86 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.3.8)
+    daemons (1.2.3)
+    data_objects (0.10.16)
+      addressable (~> 2.1)
+    diff-lcs (1.2.5)
+    dm-aggregates (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-chunked_query (0.3.1)
+      dm-aggregates (~> 1.0)
+      dm-core (~> 1.0)
+    dm-core (1.2.1)
+      addressable (~> 2.3)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
+    dm-migrations (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-postgres-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_postgres (~> 0.10.6)
+    dm-timestamps (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-validations (1.2.0)
+      dm-core (~> 1.2.0)
+    do_postgres (0.10.16)
+      data_objects (= 0.10.16)
+    eventmachine (1.0.7)
+    haml (4.0.6)
+      tilt
+    json (1.8.3)
+    rack (1.6.4)
+    rack-flash3 (1.0.5)
+      rack
+    rack-methodoverride-with-params (1.0.0)
+      rack (~> 1)
+    rack-protection (1.5.3)
+      rack
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+    rspec-core (3.3.1)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-mocks (3.3.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
+    tilt (2.0.1)
+    uuidtools (2.1.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dm-aggregates
+  dm-chunked_query
+  dm-core
+  dm-migrations
+  dm-postgres-adapter
+  dm-timestamps
+  dm-validations
+  haml
+  json
+  rack-flash3
+  rack-methodoverride-with-params
+  rspec
+  sinatra
+  thin
+  uuidtools
+
+BUNDLED WITH
+   1.10.5
