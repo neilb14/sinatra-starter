@@ -1,3 +1,3 @@
 get '/' do
-	"Hello World"	
+	haml :default	
 end
