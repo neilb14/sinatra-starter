@@ -1,12 +1,5 @@
 $: << File.expand_path('../lib', File.dirname(__FILE__))
-require 'sinatra/base'
 require 'config_file'
-require 'dm-core'
-require 'dm-validations'
-require 'dm-timestamps'
-require 'dm-migrations'
-require 'dm-chunked_query'
-require 'dm-aggregates'
 
 module Sinatra
   module Bootstrap
@@ -36,11 +29,17 @@ module Sinatra
       Dir.glob("lib/**/*.rb").sort.each { |f| load f }        
       Dir.glob("app/models/**/*.rb") { |f| load f}
       Dir.glob("app/controllers/**/*.rb") { |f| load f}
-      DataMapper.setup(:default, ENV["DATABASE_URL"] || settings.db_connection_string)
-      configure :development do
-        DataMapper.auto_upgrade!
-      end
-      DataMapper.finalize
+
+      db = URI.parse(ENV["DATABASE_URL"] || settings.db_connection_string)
+      ActiveRecord::Base.establish_connection(
+        :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+        :host     => db.host,
+        :username => db.user,
+        :password => db.password,
+        :database => db.path[1..-1],
+        :encoding => 'utf8'
+      )
+      ActiveRecord::Base.logger = nil
     end
   end
   register Bootstrap
